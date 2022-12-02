@@ -1,4 +1,4 @@
-# <img src="img/kipi_logo.png" width="100" height="3%" title="px(픽셀) 크기 설정" alt="kipi" align="left">KIPI DATA INSIGHT 제1호 : 특허 DATA의 키워드를 활용한 미래 기술 위크시그널 분석</img>
+# <img src=".img/kipi_logo.png" width="5%" height="3%" title="px(픽셀) 크기 설정" alt="kipi" align="left">KIPI DATA INSIGHT 제1호 : 특허 DATA의 키워드를 활용한 미래 기술 위크시그널 분석</img>
 
 # Preview
 
@@ -35,7 +35,7 @@
 
 > ```KISTI 위크시그널 자동탐지 프로세스```
 <p align="center">
-<img src="img/KISTI_process.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="kisti" align="center"></img>
+<img src=".img/KISTI_process.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="kisti" align="center"></img>
 </p>
 </br>
 </br>
@@ -45,7 +45,7 @@
 > 우선 KISTI 프로세스와 다른 점은 키워드와 구문(=키프레이즈) 추출 부분입니다. n-gram 방식으로 키워드를 추출하는 방식에서 LTokenizer를 통해 통계기반으로 명사를 추출하게 되었고, BERT 임베딩 모델을 활용하여 키프레이즈(=구문)을 추출하는 방법에 있습니다. 또한 특허 내에 제목, 초록 뿐만아니라 배경기술, 기술분야의 내용에서도 뽑아내는 점이 변경영역으로 볼 수 있습니다. 나머지 프로세스들은 데이터의 규모나 특허데이터라는 특성만 다른뿐 비슷한 형태를 지니고 있습니다.
 
 <p align="center">
-<img src="/img/KIPI_process.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="kipi" align="center"></img>
+<img src=".img/KIPI_process.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="kipi" align="center"></img>
 </p>
 
 # 2. 위크시그널 자동탐지 실험
@@ -59,7 +59,7 @@
 - 대상 필드는 발명의 명칭, 요약, 배경기술, 기술분야로 적용
 
 <p align="center">
-<img src="/img/target_patent_docs.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/target_patent_docs.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 </br>
 
@@ -75,7 +75,7 @@
 - 684,938 + 954,691 = 1,589,576건
 
 <p align="center">
-<img src="/img/ex_keyword_extract.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/ex_keyword_extract.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 </br>
 
@@ -88,7 +88,7 @@
 - 약 2~10 내의 단어로 이루어진 의미적으로 완전한 어구
 
 <p align="center">
-<img src="/img/key_phrase.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/key_phrase.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 </br>
 
@@ -107,7 +107,7 @@
 - 활동성 = 빈도수(최근3년/20년) >= 0.6
 
 <p align="center">
-<img src="/img/poping_keyword_extract.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/poping_keyword_extract.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 </br>
 
@@ -116,7 +116,7 @@
 > 1999년부터 2018년까지 A 섹션 출원한 문헌이 505,506건인데 이 중 키워드로 치면 중복제거하고 386,904건이 됩니다. 이때 BM25 값이 1인 경우는 65,243건이 되고 경향성이 10초과 되는 건은 16,107건이 됩니다. 이 16,107건의 키워드가 팝핑 키워드 후보가 될 것이고 팝핑 키워드 조건인 규모성이 40이상이고 활동성이 0.6이상인 것이 766건이 나오게 됩니다.
 
 <p align="center">
-<img src="/img/poping_keyword_extract_target.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/poping_keyword_extract_target.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 </br>
 
@@ -125,12 +125,12 @@
 > 팝핑 키워드 후보 16,107건 중 활동성이 0.6이상인 건 3,741건이고 이 중 규모성이 40이상인 걸 뽑으면 766건이 팝핑 키워드로 추출됩니다. 아래 실제 BM25 기반과 TF-IDF기반으로 팝핑 키워드가 결과로 뽑힌 예시를 볼 수 있습니다.참고로 TF-IDF기반만으로 경향성, 규모성, 활동성 조건들을 필터로 팝핑 키워드를 뽑게되면 656건이 뽑히게 됩니다.
 
 <p align="center">
-<img src="/img/poping_keyword_extract_result.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/poping_keyword_extract_result.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 </br>
 
 <p align="center">
-<img src="/img/poping_keyword_extract_ex.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/poping_keyword_extract_ex.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> < BM25기반, TF-IDF기반 Poping 키워드 예시></p>
 </br>
@@ -146,7 +146,7 @@
 - TF-IDF의 term을 키프레이즈로 변경
 
 <p align="center">
-<img src="/img/tf-idf.png" width="50%" height="50%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/tf-idf.png" width="50%" height="50%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 
 > ```Poping 키프레이즈 후보 추출 조건```
@@ -157,7 +157,7 @@
 - 프레이즈 내부 키워드 별 경향성 합계 > 0  : 21,880 건
 
 <p align="center">
-<img src="/img/poping_keyphrase_hubo.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/poping_keyphrase_hubo.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 
 > ```Poping 키프레이즈 추출 조건```
@@ -165,7 +165,7 @@
 > 이제 팝핑 키프레이즈 후보 21,880건을 뽑았고 이 중 팝핑 키프레이즈 조건으로 규모성과 활동성을 적용하여 대상건을 추출하겠습니다. 규모성은 9이상이고 활동성이 0.5이상인 것은 약 2.6%로 575건이 키프레이즈로 뽑히게 됩니다. 
 
 <p align="center">
-<img src="/img/poping_keyphrase_final.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/poping_keyphrase_final.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 
 
@@ -177,12 +177,12 @@
 - Poping 키프레이즈 수 : 575건
 
 <p align="center">
-<img src="/img/poping_keyword_phrase_check2.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/poping_keyword_phrase_check2.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> < A섹션의 클래스 별 출원 건수와 팝핑 키워드&키프레이즈의 클래스 별 유사도></p>
 
 <p align="center">
-<img src="/img/poping_keyword_phrase_check1.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/poping_keyword_phrase_check1.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center">< A섹션 내 메인클래스 상위 6개와 CPC 정의서></p>
 
@@ -191,7 +191,7 @@
 > ```Poping 키프레이즈 투명```
 
 <p align="center">
-<img src="/img/keyphrase_visualize.png" width="50%" height="50%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/keyphrase_visualize.png" width="50%" height="50%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 
 ## 2.8 일반 Poping 키워드&키프레이즈와 신규 Poping 키워드&키프레이즈 추출
@@ -203,7 +203,7 @@
 - 신규 Poping 키워드&키프레이즈 수 : 118건
 
 <p align="center">
-<img src="/img/poping component_and_clique_before.png" width="60%" height="60%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/poping component_and_clique_before.png" width="60%" height="60%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center">< 일반 팝핑 키워드&키프레이즈와 신규 팝핑 키워드&키프레이즈 추출 ></p>
 
@@ -217,12 +217,12 @@
 - 신규 Poping Clique 수 : 91건
 
 <p align="center">
-<img src="/img/poping component_and_clique.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/poping component_and_clique.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center">< 일반 팝핑 connected component와 신규 팝핑 clique 추출 과정></p>
 
 <p align="center">
-<img src="/img/component_clique_example.png" width="25%" height="25%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/component_clique_example.png" width="25%" height="25%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center">< connected component와 clique 예시> *KISTI 미래기술 위크시그널 성장예측보고서</p>
 
@@ -233,7 +233,7 @@
 > cosine similarity 거리가 0.3 이내 인 경우, 841건이 추출 되고 노드가 3개 이상으로 이루어진 그래프가 56개가 추출됩니다. 즉 위크 시그널이 됩니다.
 
 <p align="center">
-<img src="/img/connected component_fianl_ex.png" width="90%" height="90%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/connected component_fianl_ex.png" width="90%" height="90%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center">< connected component 결과 예시></p>
 
@@ -243,7 +243,7 @@
 > cosine similarity 거리가 0.5 이내 인 경우, 91건이 추출 되고 노드가 2개 이상으로 이루어진 그래프가 18개가 추출됩니다. 즉 위크 시그널이 됩니다.
 
 <p align="center">
-<img src="/img/clique_final_ex.png" width="90%" height="90%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/clique_final_ex.png" width="90%" height="90%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center">< clique 결과 예시></p>
 
@@ -259,7 +259,7 @@
 > 일반 팝핑 connected component가 56개 추출되고 이것들이 일반 팝핑 위크시그널이 됩니다. 하나의 예시로 '모빌리티 전동휠', '모빌리티', '보조동력장치 수동휠체어' 등으로 이루어진 기술이 위크 시그널로 추출된 것을 볼 수 있습니다.
 
 <p align="center">
-<img src="/img/weaksignal_cc.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/weaksignal_cc.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center">< 일반 팝핑 위크시그널 결과 시각화></p>
 
@@ -268,7 +268,7 @@
 > 신규 팝핑 clique가 18개가 추출되고 이것들이 신규 팝핑 위크시그널이 됩니다. 하나의 예시로 '머신러닝'과 '딥러닝'의 키워드로 이루어진 기술을 볼 수 있습니다.
 
 <p align="center">
-<img src="/img/weaksignal_c.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/weaksignal_c.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center">< 신규 팝핑 위크시그널 결과 시각화></p>
 
@@ -277,7 +277,7 @@
 > 위크시그널을 해석하고 분석하기 위해서 각 위크시그널들 간에 유사도 거리가 0.4 이내인 것으로 하고 Connected component 하여 추출하면 포커스 인덱스가 그룹핑됩니다. 그렇게 74개의 위크시그널에서 42개의 포커스 인덱스가 형성됩니다. 각 그룹을 표현하는 매인 키워드는 형태소 분석기로 분리하여 가장 자주 출현된 토큰으로 명명하였습니다. 아래 하나 예시를 보면 위크시그널로 나온 것들이 '전자담배', '담배 베이핑', '전자담배장치' 등 볼 수 있습니다. 그리고 이것들을 쉽게 분석할 수 있도록 '담배'로 묶어서 포커스 인덱스 그룹핑 되는 것을 볼 수 있습니다. 
 
 <p align="center">
-<img src="/img/weaksignal_focus_index.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src=".img/weaksignal_focus_index.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center">< 위크시그널의 포커스 인덱스 예시></p>
 

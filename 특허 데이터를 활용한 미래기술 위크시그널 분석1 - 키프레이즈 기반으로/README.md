@@ -1,4 +1,4 @@
-# <img src="/img/kipi_logo.png" width="5%" height="3%" title="px(픽셀) 크기 설정" alt="kipi" align="left">KIPI DATA INSIGHT 제1호 : 특허 DATA의 키워드를 활용한 미래 기술 위크시그널 분석</img>
+# <img src="img/kipi_logo.png" width="5%" height="3%" title="px(픽셀) 크기 설정" alt="kipi" align="left">KIPI DATA INSIGHT 제1호 : 특허 DATA의 키워드를 활용한 미래 기술 위크시그널 분석</img>
 
 # Preview
 

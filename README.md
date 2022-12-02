@@ -1,5 +1,6 @@
 # Releases 
 
+---
 
 
 (2022.12.1) [KorPatBERT 기반 특허문헌 CPC코드 자동분류 연구](

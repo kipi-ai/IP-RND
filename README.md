@@ -5,6 +5,6 @@
 (2022.12.1) [KorPatBERT 기반 특허문헌 CPC코드 자동분류 연구](
 https://github.com/kipi-ai/IP-RnD/tree/main/KorPatBERT%20%EA%B8%B0%EB%B0%98%20%ED%8A%B9%ED%97%88%EB%AC%B8%ED%97%8C%20CPC%EC%BD%94%EB%93%9C%20%EC%9E%90%EB%8F%99%EB%B6%84%EB%A5%98%20%EC%97%B0%EA%B5%AC)
 <br>
-(2022.12.2) [특허 데이터를 활용한 미래기술 위크시그널 분석1 - 키프레이즈 기반으로]
+(2022.12.2) [특허 데이터를 활용한 미래기술 위크시그널 분석1 - 키프레이즈 기반으로](https://github.com/kipi-ai/IP-RnD/blob/main/%ED%8A%B9%ED%97%88%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%EB%AF%B8%EB%9E%98%EA%B8%B0%EC%88%A0%20%EC%9C%84%ED%81%AC%EC%8B%9C%EA%B7%B8%EB%84%90%20%EB%B6%84%EC%84%9D1%20-%20%ED%82%A4%ED%94%84%EB%A0%88%EC%9D%B4%EC%A6%88%20%EA%B8%B0%EB%B0%98%EC%9C%BC%EB%A1%9C/README.md)
 <br>
-(2022.12.2) [특허 데이터를 활용한 미래기술 위크시그널 분석2 - 특허 CPC 기반으로]
+(2022.12.2) [특허 데이터를 활용한 미래기술 위크시그널 분석2 - 특허 CPC 기반으로](https://github.com/kipi-ai/IP-RnD/blob/main/%ED%8A%B9%ED%97%88%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%EB%AF%B8%EB%9E%98%EA%B8%B0%EC%88%A0%20%EC%9C%84%ED%81%AC%EC%8B%9C%EA%B7%B8%EB%84%90%20%EB%B6%84%EC%84%9D1%20-%20%ED%8A%B9%ED%97%88%20CPC%20%EA%B8%B0%EB%B0%98%EC%9C%BC%EB%A1%9C/README.md)

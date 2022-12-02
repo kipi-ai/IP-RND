@@ -35,7 +35,7 @@
 
 > ```KISTI 위크시그널 자동탐지 프로세스```
 <p align="center">
-<img src="/img/KISTI_process.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="kisti" align="center"></img>
+<img src="img/KISTI_process.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="kisti" align="center"></img>
 </p>
 </br>
 </br>

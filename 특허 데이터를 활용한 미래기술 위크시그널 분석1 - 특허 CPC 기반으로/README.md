@@ -1,4 +1,4 @@
-# <img src=".img/kipi_logo.png" width="5%" height="3%" title="px(픽셀) 크기 설정" alt="kipi" align="left">KIPI DATA INSIGHT 제2호 : 특허 DATA의 CPC를 활용한 미래 기술 위크시그널 분석 및 성장 예측</img>
+# <img src="img/kipi_logo.png" width="5%" height="3%" title="px(픽셀) 크기 설정" alt="kipi" align="left">특허 DATA를 활용한 미래기술 위크시그널 분석2 - 특허 CPC 기반으로</img>
 
 # Preview
 
@@ -43,7 +43,7 @@
 
 > ```KISTI 위크시그널 자동탐지 프로세스```
 <p align="center">
-<img src=".img/KISTI_process.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="kisti" align="center"></img>
+<img src="img/KISTI_process.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="kisti" align="center"></img>
 </p>
 </br>
 </br>
@@ -55,7 +55,7 @@
 , 기술분야 외에 청구항 벡터도 함께 추출하여 평균으로 문헌벡터를 만드는 부분도 다른점이 될 것입니다. 
 
 <p align="center">
-<img src=".img/KIPI_process2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="kipi" align="center"></img>
+<img src="img/KIPI_process2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="kipi" align="center"></img>
 </p>
 
 # 2. 위크시그널 자동탐지 실험
@@ -70,7 +70,7 @@
 - 대상 필드는 발명의 명칭, 요약, 배경기술, 기술분야, 청구항으로 적용
 
 <p align="center">
-<img src=".img/target_patent_docs2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/target_patent_docs2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 </br>
 
@@ -82,12 +82,12 @@
 - subgroup 기준 : 128,395개 (주분류)
 
 <p align="center">
-<img src=".img/cpc_group_extract1.png" width="50%" height="50%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/cpc_group_extract1.png" width="50%" height="50%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> <위크시그널을 위한 연도별 특허 문헌 수></p>
 </br>
 <p align="center">
-<img src=".img/cpc_group_extract2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/cpc_group_extract2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> <위크시그널을 위한 섹션 별 특허 문헌 수와 서브그룹> </p>
 </br>
@@ -110,7 +110,7 @@
 적게 나왔기 때문인 것으로 보입니다.
 
 <p align="center">
-<img src=".img/cpc_group_extract3.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/cpc_group_extract3.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> <위크시그널을 위한 섹션 별 특허 팝핑 문헌 수와 팝핑 서브그룹> </p>
 
@@ -124,13 +124,13 @@
 
 
 <p align="center">
-<img src=".img/cpc_auto_group1.png" width="30%" height="30%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/cpc_auto_group1.png" width="30%" height="30%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> < CPC subgroup으로 연결된 기술그룹 그래프 예시> </p>
 </br>
 
 <p align="center">
-<img src=".img/cpc_auto_group2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/cpc_auto_group2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> < E섹션 내 CPC subgroup으로 연결된 기술그룹 그래프 예시> </p>
 
@@ -142,13 +142,13 @@
 > 룹에서 기술그룹을 자동화 그래프 그룹핑하게되면 2만7천개의 기술들이 3,838개 그래프로 위크시그널을 보내게 됩니다. 아래 통계가 문헌 수와 서브그룹 기술 수 및 비중으로 표현되어 있습니다.
 
 <p align="center">
-<img src=".img/cpc_group_extract4.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/cpc_group_extract4.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> <위크시그널을 위한 섹션 별 weak signal 서브그룹 수> </p>
 </br>
 
 <p align="center">
-<img src=".img/cpc_group_extract5.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/cpc_group_extract5.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> <위크시그널을 위한 섹션 별 weak signal 서브그룹 비중> </p>
 
@@ -160,7 +160,7 @@
 > CPC 기술그룹을 형성하여 전체 섹션으로 보게 되면 문헌 기준 20만건의 팝핑 특허 문헌이 생기고 CPC subgroup 기준 9만 7천여개의 팝핑기술이 생기는 것을 알 수 있습니다. 또한 이 팝핑 기술들이 그래프로 그룹화 되어 3,838개 팝핑 기술 그룹(그래프)이 생성됩니다. 이로써 미래 기술로 3,838개 위크시그널이 발견되었습니다.
 
 <p align="center">
-<img src=".img/cpc_auto_group3.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/cpc_auto_group3.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> <3,383개 위크시그널 시각화> </p>
 </br>
@@ -172,7 +172,7 @@
 > 위크시그널로 나온 3,838개의 그래프들이 어떤 기술인지를 확인하기 위해서 CPC를 KSIC산업분류와 맵핑시켜 기술 파악하고 해석하려고 합니다. 따라서 산업(KSIC)-특허 연계표를 활용하여 기술을 해석해 보겠습니다.
 
 <p align="center">
-<img src=".img/weak_signal_check1.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/weak_signal_check1.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> <위크시그널 해석을 위한 산업분류와 특허분류의 맵핑표 적용> </p>
 
@@ -182,13 +182,13 @@
 제거 됩니다.
   
 <p align="center">
-<img src=".img/weak_signal_check2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/weak_signal_check2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> < CPC특허분류를 산업분류로 맵핑하는 방법 예시> </p>
 </br>
 
 <p align="center">
-<img src=".img/weak_signal_check3.png" width="40%" height="40%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/weak_signal_check3.png" width="40%" height="40%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> <너무 포괄적인 산업분류는 제거> </p>
   
@@ -204,7 +204,7 @@
 - KISTI 보고서에 내용과 일치하도록 Graph Convolutional Neural Network 모델이 구현된 파이썬 패키지 StellarGraph를 이용하였고 DeepGraphCNN 알고리즘을 활용
   
 <p align="center">
-<img src=".img/gcnn_example.png" width="40%" height="40%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/gcnn_example.png" width="40%" height="40%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> < GCNN 모델을 활용한 고성장 특허 예측 예시> *KISTI 미래기술 위크시그널 성장예측보고서 </p> 
   
@@ -228,7 +228,7 @@
 면 2001년에서 2006년을 기준데이터로 보면 예측하는 기간은 2011년에서 2016년을 대상으로 고성장 기술을 예측하게 됩니다.
   
 <p align="center">
-<img src=".img/gcnn_dataset2.png" width="40%" height="40%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/gcnn_dataset2.png" width="40%" height="40%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> < 기준데이터, 성장데이터 기준> </p>   
  
@@ -240,7 +240,7 @@
 - 평가데이터 기간 : 2008년에서 2010년 특허 데이터
   
 <p align="center">
-<img src=".img/high_tech_labeling.png" width="90%" height="90%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/high_tech_labeling.png" width="90%" height="90%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> < 고성장 예측 모델 라벨링 후 학습데이터> </p>   
   
@@ -251,7 +251,7 @@
 > GCNN 분류 모델은 KISTI 보고서에서 제시한 동일한 layer를 적용하여 실험하였습니다. 
   
 <p align="center">
-<img src=".img/gcnn_layers.png" width="50%" height="50%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/gcnn_layers.png" width="50%" height="50%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> < GCNN 모델 설계> *KISTI 미래기술 위크시그널 성장예측보고서 </p>   
   
@@ -273,7 +273,7 @@
 - accuracy : 97.44%
 
 <p align="center">
-<img src=".img/train_test_dataset.png" width="35%" height="35%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/train_test_dataset.png" width="35%" height="35%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 <p align="center"> < 학습데이터와 평가데이터 > </p>  
   
@@ -285,7 +285,7 @@
   
 </br>
 <p align="center">
-<img src=".img/predict_weak_signal.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/predict_weak_signal.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 
 ---

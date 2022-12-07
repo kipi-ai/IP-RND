@@ -1,11 +1,11 @@
-# <img src="img/kipi_logo.png" width="5%" height="3%" title="px(픽셀) 크기 설정" alt="kipi" align="left">특허 DATA를 활용한 미래기술 위크시그널 분석1 - 키프레이즈 기반으로</img>
+# <img src="img/kipi_logo.png" width="5%" height="3%" title="px(픽셀) 크기 설정" alt="kipi" align="left">특허 DATA를 활용한 미래기술 위크시그널 분석2 - 특허 CPC 기반으로</img>
 
 # Preview
 
-- **제목** :  '[**특허 DATA의 키워드를 활용한 미래 기술 위크시그널 분석**](#)'
-- **요약** : 현재 중요성을 아직 판단하기 어렵지만 잠재력에 대한 정보를 내포하고 있는 작은 신호 또는 징후를 위크시그널이라고 부릅니다. 특허는 매우 세밀한 기술적 특징을 담고 있는 문서로, 한국특허정보원에서는 국내 특허DATA의 키워드를 활용하여 위크시그널 판단 가능성을 확인하고자 합니다. 본 연구에서는 특허 기술분류 코드인 CPC에서 A섹션만을 대상으로 수행하였고 1999년부터 2018년간 약 50만 건의 문서에서 기술 키워드와 구문을 6,150만 개 추출하였습니다. 이 키워드와 구문의 조합으로 새로운 기술을 그래프로 만들었고 이것을 위크시그널로 표현하였습니다. 기존 방법과 다른점은 키워드와 키프레이즈라고하는 구문을 추출하는 방법입니다. 명사를 추출할 때 L-[R] 그래프 구조로 통계적 원리를 활용하였고 특허문헌을 학습한 BERT 언어모델을 활용하여 키프레이즈를 추출하였습니다. 또한 기술그룹 구축을 위한 유사성을 판단할 때도 특허 BERT 언어모델을 활용한 점이 다른 점이라고 할 수 있습니다. 특허 키워드 추출방법, 언어모델 활용 등 특허문헌의 자연어 처리 노하우를 접목하여 미래 기술 위크시그널을 분석하는 점에서 의미있는 접근 방법이고 시도라고 볼 수 있습니다. 이러한 연구를 통해서 향후 특허 기반 인공지능 분석 관련 분야의 발전에 기여하고자 합니다.
+- **제목** :  '[**특허 DATA의 CPC를 활용한 미래 기술 위크시그널 분석 및 성장 예측**](#)'
+- **요약** : 현재 중요성을 아직 판단하기 어렵지만 잠재력에 대한 정보를 내포하고 있는 작은 신호 또는 징후를 위크시그널이라고 부릅니다. 특허는 매우 세밀한 기술적 특징을 담고 있는 문서로, 한국특허정보원에서는 국내 특허DATA의 CPC를 활용하여 위크시그널 판단 가능성을 확인하고자 합니다. 본 연구에서는 2001년부터 2019년간 약 321만 건의 문서에서 CPC 주분류 12만 개를 추출하였습니다. 이 CPC 주분류의 벡터 조합으로 새로운 기술 그래프를 만들었고 이것을 위크시그널로 표현하였습니다. 기존 방법과 다른점은 키워드를 이용한 기술 표현을 CPC subgroup으로 표현한 방법입니다. 대표 CPC 벡터 정보를 구축할 때는 한 문헌의 필드 별 정보의 평균으로 구축하고 문헌 벡터들의 평균으로 CPC subgroup 대표 벡터를 추출하였습니다. 또한 기술그룹 구축을 위한 유사성을 판단할 때도 특허 BERT 언어모델을 활용한 점도 다른 점이라고 할 수 있습니다. 전체 CPC 섹션을 모두 적용하였고 위크시그널의 성장성을 예측하는 모델을 구축한 점에서 새로운 시도가 됩니다. 이렇게 특허 임베딩 방법, 특허 전문 언어모델 활용 등 특허문헌의 자연어 처리 노하우를 접목하였고 미래 기술 위크시그널을 분석하는 점에서 의미있는 접근 방법이고 시도라고 볼 수 있습니다. 이러한 연구를 통해서 향후 특허 기반 인공지능 분석 관련 분야의 발전에 기여하고자 합니다.
 
-- **연구부서** : 한국특허정보원 지능정보전략팀 연구실증파트
+- **연구부서** : 한국특허정보원 지능정보전략팀 연구실증파트 
 - **연구자** : 민재옥, 박진우, 심우철, 김채은, 황솔빈
 
 ---
@@ -23,14 +23,22 @@
 
 ---
 
-# 1. 미래기술 위크시그널 - 키워드 활용편
+# 1. 미래 기술 위크시그널 - CPC코드 활용편
 ## 1.1. 위크시그널
 > 위크시그널의 개념은 전략적 관리자로 알려진 Ansoff의 "Managing Strategic Surprise by Response to Weak Signals"라는 논문에서 기업이 외부변화로부터 받게 될 충격을 관리하기 위
 > 해 충격을 야기할 수 있는 작은 신호로 사용되었습니다. 경험적 외삽으로는 설명하기 어렵고 그 중요성이 불분명하지만, 미래에 일어날 일들에 대한 정보를 담고 있는 작은 징후로 보기도 
 > 합니다. 따라서 예전에는 전문가들이 토론을 거쳐서 결정하였고 급변하는 기술환경에서 빠르게 자동으로 판단하기 쉽지 않았습니다. 이에 따라 KISTI연구진은 위크시그널을 자동 탐지하는 방
 > 법을 시도해보았고 한국특허정보원에서도 국내 특허데이터로 실험을 진행해보았습니다.
 
-### 1.2 위크시그널 자동탐지 프로세스
+## 1.2 CPC코드 활용
+> ```왜 CPC 코드를 활용할까?```
+
+> 위에 기술된 위크 시그널의 기술 탐지는 결국 키워드 단위로 이용되는 것이고, 미래 기술을 키워드의 집합으로 탐지하게 됩니다. 그러나 특허에서는 전세계적으로 잘 활용하는 기술체계가 있습
+> 니다. CPC(Cooperative Patent Code)로 기술을 최대 약 27만여개로 분류하는 코드가 이에 해당합니다. 마침 한국특허정보원에서는 CPC 자동분류 예측 인공지능 모델을 구축하였고 성능도 뛰
+> 어나기 때문에 이를 활용해서 위크시그널에 적용해 보려고 합니다. 또한 단순히 키워드 단위로 기술을 표현하게되면 보통 우리가 겪게되는 키워드의 한계를 가지게 될 수 있습니다. 동음이의어
+> 나 이음동의어로 생기는 의미 표현의 한계를 넘을 수 없기에 CPC 기술 단위로 위크시그널을 탐지하는데 큰 의미가 있다고 판단합니다.
+
+### 1.3 CPC 코드 활용 위크시그널 자동탐지 프로세스
 이 글에서는 혼동을 방지하기 위해 참고한 KISTI 미래기술 위크시그널 방식은 'KISTI 위크시그널'로 명명하고 특허데이터를 적용한 방식은 'KIPI 위크시그널'로 구분하여 설명드리겠습니다.
 
 > ```KISTI 위크시그널 자동탐지 프로세스```
@@ -42,256 +50,275 @@
 
 > ```KIPI 위크시그널 자동탐지 프로세스```
 
-> 우선 KISTI 프로세스와 다른 점은 키워드와 구문(=키프레이즈) 추출 부분입니다. n-gram 방식으로 키워드를 추출하는 방식에서 LTokenizer를 통해 통계기반으로 명사를 추출하게 되었고, BERT 임베딩 모델을 활용하여 키프레이즈(=구문)을 추출하는 방법에 있습니다. 또한 특허 내에 제목, 초록 뿐만아니라 배경기술, 기술분야의 내용에서도 뽑아내는 점이 변경영역으로 볼 수 있습니다. 나머지 프로세스들은 데이터의 규모나 특허데이터라는 특성만 다른뿐 비슷한 형태를 지니고 있습니다.
+> 기존 프로세스와 다른 점은 기술의 표현을 키워드의 집합으로 구성되던 것이 CPC subgroup의 집합으로 구성되는 것입니다. 따라서 키워드와 키프레이즈를 추출했던 과정이 CPC subgroup의 벡
+터 추출로 대체됩니다. CPC subgroup 벡터는 해당되는 주분류의 문헌들의 벡터를 추출하고 그 평균으로 CPC subgroup의 대표가 됩니다. 또한 문헌 벡터를 추출할 때 제목, 초록, 배경기술 
+, 기술분야 외에 청구항 벡터도 함께 추출하여 평균으로 문헌벡터를 만드는 부분도 다른점이 될 것입니다. 
 
 <p align="center">
-<img src="img/KIPI_process.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="kipi" align="center"></img>
+<img src="img/KIPI_process2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="kipi" align="center"></img>
 </p>
 
 # 2. 위크시그널 자동탐지 실험
 
 ## 2.1 실험 데이터
 
-- 1999년 ~ 2018년 
+- 2001년 ~ 2019년(출원연도 기준)
 - 특허 공개공보 데이터 
-- CPC(Cooperative Patent Classification)에서 A section인 건만 대상
-- 전체 3,360,316건 중 505,560건
-- 대상 필드는 발명의 명칭, 요약, 배경기술, 기술분야로 적용
+- 전체 CPC(Cooperative Patent Classification)의 Subgroup 대상
+- Subgroup 기준 주분류 128,395개
+- 전체 특허 3,218,806건
+- 대상 필드는 발명의 명칭, 요약, 배경기술, 기술분야, 청구항으로 적용
 
 <p align="center">
-<img src="img/target_patent_docs.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/target_patent_docs2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
 </br>
 
-## 2.2 키워드 추출
+## 2.2 CPC 집합 추출
 
-> ```SoyNLP L-[R] 명사 추출기 사용```
+> ```CPC Subgroup 별 모든 문서의 대표 벡터 추출```
 
-- 버전 : SoyNLP 0.0493
-- 통계기반의 미등록 용어문제 해결, L-[R] Graph 구조를 활용한 명사 추출
-- Noun Extractor를 이용한 명사 및 복합명사 추출 → LTokenizer를 이용한 단어 분리(KorPatBERT Tokenizer에서도 Mecab형태소 분석기 사용자 사전 용어 등록 시 활용)
-- LTokenizer 사용자 사전 명사 : 684,938건
-- 복합 명사 : 954,691건 
-- 684,938 + 954,691 = 1,589,576건
+- 문서 기준 : 3,218,806건
+- subgroup 기준 : 128,395개 (주분류)
 
 <p align="center">
-<img src="img/ex_keyword_extract.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/cpc_group_extract1.png" width="50%" height="50%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
+<p align="center"> <위크시그널을 위한 연도별 특허 문헌 수></p>
+</br>
+<p align="center">
+<img src="img/cpc_group_extract2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+</p>
+<p align="center"> <위크시그널을 위한 섹션 별 특허 문헌 수와 서브그룹> </p>
 </br>
 
-## 2.3 키프레이즈 추출
+## 2.3 CPC 활동성 측정
 
-> ```KorPatBERT CPC 분류기 모델 사용```
+> ```CPC 규모성, 활동성 측정```
 
-- 대상필드 : 제목, 요약, 배경기술, 기술분야
-- 워드단위 < 프레이즈 < 문장단위
-- 약 2~10 내의 단어로 이루어진 의미적으로 완전한 어구
+> 기존 KISTI 논문에서의 비중과 같은 비중으로 적용하여 규모성과 활동성 기준을 정하였습니다. KISTI에서는 1636만 논문 중 규모성 적용 시 210만건으로 13%가 해당되고, 특허문헌도 21만 건> 중 규모성 적용 시 2만 5천건으로 약 13%에 해당하였고 활동성에서 빈도수가 5년 내 최근 1년 기준으로 하였을 때 기존 KISTI 논문의 비중과 동일하게 됨을 알 수 있습니다. 이런 이유로 규
+> 모성과 활동성의 기준은 조건3, 조건4의 아래 내용과 같습니다. 
 
-<p align="center">
-<img src="img/key_phrase.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
-</p>
-</br>
+- 조건3. 규모성 = 빈도수(최근1년) >= 1
+- 조건4. 활동성 = 빈도수(최근1년)/빈도수(5년) >= 0.5
 
-## 2.4 Poping 키워드 추출
+## 2.4 Poping CPC 추출
 
-> ```Poping 키워드 후보 추출 조건```
+> ```CPC 기술그룹 자동 생성```
 
-> BM25와 TF-IDF는 정규화를 통해 최대값이 1이 되게 nomalize하였고 이 중 최대값에 해당하는 것만을 기본적으로 추려서 후보로 뽑았습니다. 경향성의 경우 KISTI에서 있던 경향성의 통계적 비율과 동일하게 뽑기위해 후반 3년 빈도수가 10번 더 나온 경우로 정하여 추출하였습니다.
-
-- (BM25 == 1) or (TF-IDF == 1)
-- 경향성 = 빈도수(후반3년) - 빈도수(전반3년) > 10
-
-> ```Poping 키워드 추출 조건```
-
-- 규모성 = 빈도수(최근3년) >= 40
-- 활동성 = 빈도수(최근3년/20년) >= 0.6
+> CPC 규모성, 활동성을 측정하여 적용 시 321만건 특허 중에서 20만건의 팝핑 문헌이 나오고, 이 문헌의 주분류를 확인해보면 9만 7천여개의 기술이 있슴을 알 수 있습니다. 팝핑 서브그룹은 > 섹션 별로 A섹션은 1만3천건, B섹션은 2만3천건, C섹션은 1만3천건, D섹션은 2천건, E섹션은 4천6백건, F섹션은 1만1천건, G섹션은 1만3천건, H섹션은 1만5천건이 나왔습니다. 주목할 점은 H섹션의 경우 111만건의 문헌에서 1만5천개 기술밖에 안나온것을 알 수 있습니다. 규모성, 활동성의 조건에 해당하는 문헌 수가 생각보다 적게 나왔고 팝핑 기술이라고 생각되는 기술 또한 
+적게 나왔기 때문인 것으로 보입니다.
 
 <p align="center">
-<img src="img/poping_keyword_extract.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/cpc_group_extract3.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
-</br>
+<p align="center"> <위크시그널을 위한 섹션 별 특허 팝핑 문헌 수와 팝핑 서브그룹> </p>
 
-> ```경향성 10초과 키워드 [135,809건] 대상```
+## 2.5 CPC 기술그룹 자동생성
 
-> 1999년부터 2018년까지 A 섹션 출원한 문헌이 505,506건인데 이 중 키워드로 치면 중복제거하고 386,904건이 됩니다. 이때 BM25 값이 1인 경우는 65,243건이 되고 경향성이 10초과 되는 건은 16,107건이 됩니다. 이 16,107건의 키워드가 팝핑 키워드 후보가 될 것이고 팝핑 키워드 조건인 규모성이 40이상이고 활동성이 0.6이상인 것이 766건이 나오게 됩니다.
+> ```CPC 기술그룹 자동생성```
+
+> CPC 기술그룹을 형성하는 것은 기술을 CPC subgroup으로 연결된 그래프 형식으로 표현하는 작업이 됩니다. 아래 예시 첫번째 그림을 보면 'H01L 39/2461'과 H01L 39/2454, H01L 39/2441, 
+> H01L 39/2464 기술들이 벡터 유사도 거리가 0.25이내로 의미적으로 가까운 기술로 볼 수 있어 그래프로 표현된 하나의 기술로 다시 볼 수 있습니다. 두번째 그림을 보면, E섹션으로 표현된 
+> 그래프 기술그룹이 생성된 것을 볼 수 있습니다.
+
 
 <p align="center">
-<img src="img/poping_keyword_extract_target.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/cpc_auto_group1.png" width="30%" height="30%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
-</br>
-
-> ```Poping 키워드 추출 결과```
-
-> 팝핑 키워드 후보 16,107건 중 활동성이 0.6이상인 건 3,741건이고 이 중 규모성이 40이상인 걸 뽑으면 766건이 팝핑 키워드로 추출됩니다. 아래 실제 BM25 기반과 TF-IDF기반으로 팝핑 키워드가 결과로 뽑힌 예시를 볼 수 있습니다.참고로 TF-IDF기반만으로 경향성, 규모성, 활동성 조건들을 필터로 팝핑 키워드를 뽑게되면 656건이 뽑히게 됩니다.
-
-<p align="center">
-<img src="img/poping_keyword_extract_result.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
-</p>
+<p align="center"> < CPC subgroup으로 연결된 기술그룹 그래프 예시> </p>
 </br>
 
 <p align="center">
-<img src="img/poping_keyword_extract_ex.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/cpc_auto_group2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
-<p align="center"> < BM25기반, TF-IDF기반 Poping 키워드 예시></p>
+<p align="center"> < E섹션 내 CPC subgroup으로 연결된 기술그룹 그래프 예시> </p>
+
+## 2.6 CPC 기술그룹 통계
+
+> ```CPC 기술그룹 통계```
+
+> 321만건 특허 문헌은 subgroup 주분류 기준 12만 8천개 기술을 표현할 수 있고, 여기서 20만개 팝핑 문헌이 나오게 되고 팝핑 문헌 속 기술은 9만7천개가 나오게 됩니다. 9만 7천개 서브그
+> 룹에서 기술그룹을 자동화 그래프 그룹핑하게되면 2만7천개의 기술들이 3,838개 그래프로 위크시그널을 보내게 됩니다. 아래 통계가 문헌 수와 서브그룹 기술 수 및 비중으로 표현되어 있습니다.
+
+<p align="center">
+<img src="img/cpc_group_extract4.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+</p>
+<p align="center"> <위크시그널을 위한 섹션 별 weak signal 서브그룹 수> </p>
 </br>
 
-## 2.5 Poping 키프레이즈 추출
+<p align="center">
+<img src="img/cpc_group_extract5.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+</p>
+<p align="center"> <위크시그널을 위한 섹션 별 weak signal 서브그룹 비중> </p>
 
-> ```PS-IDS```
 
-> 이번에는 팝핑 키프레이즈 후보를 추출하기 위해 PS-IDS로 대상 건을 추려낼 것입니다. PS-IDS는 TF-IDF와 원리는 같지만 내용을 변형한 형태로 보시면 됩니다. 키프레이즈가 문서와 얼마나 유사한지를 위한 공식으로 만들었고 이를 통해 후보를 추출 할 것입니다. 
+## 2.7 CPC 기술그룹 시각화
 
-- PS(Phrase Similarity) : 키프레이즈-문서간의 유사도
-- IDS(Inversed Document Similarity) : 키프레이즈와 총문서들간의 유사도 역수
-- TF-IDF의 term을 키프레이즈로 변경
+> ```CPC 기술그룹 시각화```
+
+> CPC 기술그룹을 형성하여 전체 섹션으로 보게 되면 문헌 기준 20만건의 팝핑 특허 문헌이 생기고 CPC subgroup 기준 9만 7천여개의 팝핑기술이 생기는 것을 알 수 있습니다. 또한 이 팝핑 기술들이 그래프로 그룹화 되어 3,838개 팝핑 기술 그룹(그래프)이 생성됩니다. 이로써 미래 기술로 3,838개 위크시그널이 발견되었습니다.
 
 <p align="center">
-<img src="img/tf-idf.png" width="50%" height="50%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/cpc_auto_group3.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
-
-> ```Poping 키프레이즈 후보 추출 조건```
-
-> 문헌 당 Top200의 키프레이즈를 뽑았기 때문에 평균적으로 200건이 있고 총 60,633,476건의 키프레이즈가 있습니다. 이때 팝핑 키프레이즈 후보를 추출하기 위해 PS-IDS값에 log값을 씌워 0.67보다 큰 경우 73,313건이 나오게 됩니다. 또한 추가적인 조건으로 키워드 별 경향성의 합이 0보다 큰 경우 규모가 더 줄어들어 결국 팝핑 키프레이즈 후보가 21,880건이 됩니다. 
-
-- Log & Max scaling 기준 > 0.67 키프레이즈 : 73,313건
-- 프레이즈 내부 키워드 별 경향성 합계 > 0  : 21,880 건
-
-<p align="center">
-<img src="img/poping_keyphrase_hubo.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
-</p>
-
-> ```Poping 키프레이즈 추출 조건```
-
-> 이제 팝핑 키프레이즈 후보 21,880건을 뽑았고 이 중 팝핑 키프레이즈 조건으로 규모성과 활동성을 적용하여 대상건을 추출하겠습니다. 규모성은 9이상이고 활동성이 0.5이상인 것은 약 2.6%로 575건이 키프레이즈로 뽑히게 됩니다. 
-
-<p align="center">
-<img src="img/poping_keyphrase_final.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
-</p>
-
-
-## 2.6 Poping 키워드&키프레이즈 검증
-
-> 팝핑 키워드 766건, 팝핑 키프레이즈 575건 합계 1,341건이 추출되었고 이 건들에 대해 면밀히 확인해보았습니다. 결과로 추출된 팝핑 키워드 & 키프레이즈 A 섹션의 클래스 별 건수가 A섹션 출원 대비 통계적으로 크게 벗어나지 않은 결과를 보였고, 메인 클래스 기준으로 보았을 때, 상위 6개의 경향이 일치한 것을 알 수 있었습니다. 특이한 것은 A24의 경우 타분류와 대비성이 강한 특징으로 유달리 높은 유사도 결과를 보였는데 CPC 정의서를 보면 A24는 '담배;엽권담배; 지권담배; 흡연용구'를 의미합니다. 
-
-- Poping 키워드 수 : 766건
-- Poping 키프레이즈 수 : 575건
-
-<p align="center">
-<img src="img/poping_keyword_phrase_check2.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
-</p>
-<p align="center"> < A섹션의 클래스 별 출원 건수와 팝핑 키워드&키프레이즈의 클래스 별 유사도></p>
-
-<p align="center">
-<img src="img/poping_keyword_phrase_check1.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
-</p>
-<p align="center">< A섹션 내 메인클래스 상위 6개와 CPC 정의서></p>
-
-## 2.7 Poping 키워드&키프레이즈 시각화
-
-> ```Poping 키프레이즈 투명```
-
-<p align="center">
-<img src="img/keyphrase_visualize.png" width="50%" height="50%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
-</p>
-
-## 2.8 일반 Poping 키워드&키프레이즈와 신규 Poping 키워드&키프레이즈 추출
-
-> 팝핑 키워드로 766건, 팝핑 키프레이즈 575건을 합해 1,341건이 추출되었습니다. 이제 여기서 위크시그널을 추출하기위해 일반 시그널과 신규 시그널을 구분해야 합니다. 활동성이 1인 경우는 신규 팝핑 키워드&키프레이즈로 구분하고 1이 아닌 경우는 일반 팝핑 키워드&키프레이즈가 될 것입니다. 이렇게 1,341건 중 일반 키워드&키프레이즈가 1,223건, 신규 키워드&키프레이즈가 118건이 됩니다. 구분이 되었으니 그룹화 하기 위해 각 기술을 표현하는 키워드와 키프레이즈의 벡터를 추출합니다.
-
-- Poping 키워드&키프레이즈 수 : 1,341건   
-- 일반 Poping 키워드&키프레이즈 수 : 1,223건
-- 신규 Poping 키워드&키프레이즈 수 : 118건
-
-<p align="center">
-<img src="img/poping component_and_clique_before.png" width="60%" height="60%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
-</p>
-<p align="center">< 일반 팝핑 키워드&키프레이즈와 신규 팝핑 키워드&키프레이즈 추출 ></p>
-
-## 2.9 Poping Connected components와 Poping Cliques 추출
-
-> 마지막 위크시그널을 만들기 위한 단계입니다. 키워드의 그래프 기술그룹으로 만들기 위해서 유사도 거리가 0.3이내 인 것은 일반 팝핑 connected component가 되고 0.5이내 인 것은 신규 팝핑 clique이 될 것입니다. 그리고 이것들을 합쳐서 위크시그널을 확인 할 수 있습니다. clique는 팝핑 키워드간 서로 완전 연결된 그룹을 말합니다. 즉 모든 노드가 연결선으로 연결된 그래프라고 보시면 됩니다. connected component는 타 팝핑 키워드와 분리되고, 소속된 팝핑 키워드가 하나의 네트워크로 연결된 그룹을 말합니다. 
-
-- 일반 Poping 키워드&키프레이즈 수 : 1,223건
-- 신규 Poping 키워드&키프레이즈 수 : 118건
-- 일반 Poping Connected Component 수 : 841건
-- 신규 Poping Clique 수 : 91건
-
-<p align="center">
-<img src="img/poping component_and_clique.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
-</p>
-<p align="center">< 일반 팝핑 connected component와 신규 팝핑 clique 추출 과정></p>
-
-<p align="center">
-<img src="img/component_clique_example.png" width="25%" height="25%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
-</p>
-<p align="center">< connected component와 clique 예시> *KISTI 미래기술 위크시그널 성장예측보고서</p>
-
-## 2.10 Poping Connected components와 Poping Cliques 예시
-
-> ```일반 팝핑 connected component 예시```
-
-> cosine similarity 거리가 0.3 이내 인 경우, 841건이 추출 되고 노드가 3개 이상으로 이루어진 그래프가 56개가 추출됩니다. 즉 위크 시그널이 됩니다.
-
-<p align="center">
-<img src="img/connected component_fianl_ex.png" width="90%" height="90%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
-</p>
-<p align="center">< connected component 결과 예시></p>
-
-
-> ```신규 팝핑 clique 예시```
-
-> cosine similarity 거리가 0.5 이내 인 경우, 91건이 추출 되고 노드가 2개 이상으로 이루어진 그래프가 18개가 추출됩니다. 즉 위크 시그널이 됩니다.
-
-<p align="center">
-<img src="img/clique_final_ex.png" width="90%" height="90%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
-</p>
-<p align="center">< clique 결과 예시></p>
-
+<p align="center"> <3,383개 위크시그널 시각화> </p>
+</br>
   
-## 2.11 위크시그널 추출
+## 2.4 CPC 위크시그널 해석
 
-- 일반 팝핑 위크시그널 : 56개
-- 신규 팝핑 위크시그널 : 18개
-- 최종 위크시그널 : 74개
-    
-> ```일반 팝핑 위크시그널 예시```
+> ```CPC 위크시그널 해석```
 
-> 일반 팝핑 connected component가 56개 추출되고 이것들이 일반 팝핑 위크시그널이 됩니다. 하나의 예시로 '모빌리티 전동휠', '모빌리티', '보조동력장치 수동휠체어' 등으로 이루어진 기술이 위크 시그널로 추출된 것을 볼 수 있습니다.
+> 위크시그널로 나온 3,838개의 그래프들이 어떤 기술인지를 확인하기 위해서 CPC를 KSIC산업분류와 맵핑시켜 기술 파악하고 해석하려고 합니다. 따라서 산업(KSIC)-특허 연계표를 활용하여 기술을 해석해 보겠습니다.
 
 <p align="center">
-<img src="img/weaksignal_cc.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/weak_signal_check1.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
-<p align="center">< 일반 팝핑 위크시그널 결과 시각화></p>
+<p align="center"> <위크시그널 해석을 위한 산업분류와 특허분류의 맵핑표 적용> </p>
 
-> ```신규 팝핑 위크시그널 예시```
+> ```KSIC 산업분류를 활용한 CPC 위크시그널 해석 방법```
 
-> 신규 팝핑 clique가 18개가 추출되고 이것들이 신규 팝핑 위크시그널이 됩니다. 하나의 예시로 '머신러닝'과 '딥러닝'의 키워드로 이루어진 기술을 볼 수 있습니다.
+> 산업분류로 맵핑표에서는 서브클래스 기준으로 맵핑되었기에 아래의 설명 방식대로 기술을 표현하였고, 너무 포괄적인 산업 분류명인 경우는 제거하였습니다. 따라서 61개 산업분류 중 3개가 
+제거 됩니다.
+  
+<p align="center">
+<img src="img/weak_signal_check2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+</p>
+<p align="center"> < CPC특허분류를 산업분류로 맵핑하는 방법 예시> </p>
+</br>
 
 <p align="center">
-<img src="img/weaksignal_c.png" width="70%" height="70%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/weak_signal_check3.png" width="40%" height="40%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
-<p align="center">< 신규 팝핑 위크시그널 결과 시각화></p>
+<p align="center"> <너무 포괄적인 산업분류는 제거> </p>
+  
+## 3. CPC 코드 활용 위크시그널 성장 예측 
 
-# 3. Focus Index 추출
+## 3.1 학습모델: Graph Convolutional Neural Network
 
-> 위크시그널을 해석하고 분석하기 위해서 각 위크시그널들 간에 유사도 거리가 0.4 이내인 것으로 하고 Connected component 하여 추출하면 포커스 인덱스가 그룹핑됩니다. 그렇게 74개의 위크시그널에서 42개의 포커스 인덱스가 형성됩니다. 각 그룹을 표현하는 매인 키워드는 형태소 분석기로 분리하여 가장 자주 출현된 토큰으로 명명하였습니다. 아래 하나 예시를 보면 위크시그널로 나온 것들이 '전자담배', '담배 베이핑', '전자담배장치' 등 볼 수 있습니다. 그리고 이것들을 쉽게 분석할 수 있도록 '담배'로 묶어서 포커스 인덱스 그룹핑 되는 것을 볼 수 있습니다. 
+> ```위크시그널의 성장추이 데이터를 기반으로 미래 위크시그널을 예측하는 그래프 모델```
+  
+- GCNN 모델은 그래프 특성을 convolutional neural network의 분석하는 방식으로, 그래프의 node prediction, link prediction, graph classification, prediction 가능
+- 본 연구에서는 위크시그널을 구성하는 CPC subgroup 네트워크에 대해서 고성장으로 분류하는 graph classification 기능을 이용
+- 특허 위그시그널의 10년 후 성장추이를 관찰하여 고성장하는 위크시그널 네트워크를 분류하는 네트워크 분류 모델을 개발
+- KISTI 보고서에 내용과 일치하도록 Graph Convolutional Neural Network 모델이 구현된 파이썬 패키지 StellarGraph를 이용하였고 DeepGraphCNN 알고리즘을 활용
+  
+<p align="center">
+<img src="img/gcnn_example.png" width="40%" height="40%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+</p>
+<p align="center"> < GCNN 모델을 활용한 고성장 특허 예측 예시> *KISTI 미래기술 위크시그널 성장예측보고서 </p> 
+  
+## 3.2 학습데이터: 기준데이터, 성장데이터, 데이터 증강
+
+#### 3.2.1 GCNN 학습데이터 구축
+
+> ```CPC subgroup을 graph의 node로 feature와 함께 학습데이터로 구축```  
+
+- Graph : node + edge + node_feature + edge_feature
+- Node : CPC subgroup
+- Edge : weak signal 연결
+- Node feature : 5년간 연도별 특허수
+- Edge feature : edge weight 유사도
+  
+> ```고성장 기술 라벨링 기준```  
+
+> 특허수(성장데이터) - 특허수(기준데이터) >= 10
+
+> 기준데이터는 과거 5년 기간 동안 weak signal로 출연한 특허수로 보고 성장데이터는 기준데이터의 10년 후 5년 기간 동안 해당 weak signal로 출연한 특허수라고 볼 수 있습니다. 예를 들
+면 2001년에서 2006년을 기준데이터로 보면 예측하는 기간은 2011년에서 2016년을 대상으로 고성장 기술을 예측하게 됩니다.
+  
+<p align="center">
+<img src="img/gcnn_dataset2.png" width="40%" height="40%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+</p>
+<p align="center"> < 기준데이터, 성장데이터 기준> </p>   
+ 
+> ```학습데이터```  
+
+- 학습데이터 : 23,540건 (2,354건을 1/30을 표준편차로 하는 normal random noise를 적용하여 10배 확장)
+- 학습데이터 기간 : 2001년에서 2007년 특허 데이터
+- 평가데이터 : 266건(89건 고성장, 177건 非고성장)
+- 평가데이터 기간 : 2008년에서 2010년 특허 데이터
+  
+<p align="center">
+<img src="img/high_tech_labeling.png" width="90%" height="90%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+</p>
+<p align="center"> < 고성장 예측 모델 라벨링 후 학습데이터> </p>   
+  
+#### 3.2.2 GCNN 모델 설계
+
+> ```GCNN 모델 layer 설계```  
+
+> GCNN 분류 모델은 KISTI 보고서에서 제시한 동일한 layer를 적용하여 실험하였습니다. 
+  
+<p align="center">
+<img src="img/gcnn_layers.png" width="50%" height="50%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+</p>
+<p align="center"> < GCNN 모델 설계> *KISTI 미래기술 위크시그널 성장예측보고서 </p>   
+  
+#### 3.2.3 GCNN 모델 학습
+
+> ```GCNN 모델 학습```  
+
+- 10 ephoc 학습
+- 10 batch 학습
+- binary accuracy : 98.36 %
+- val_bianary accuracy : 98.14%
+  
+#### 3.2.4 GCNN 모델 평가 및 분석
+
+> ```고성장 특허 예측 모델 평가```  
+
+- 평가데이터 : 2008년에서 2010년 특허 데이터
+- 10 batch 학습
+- accuracy : 97.44%
 
 <p align="center">
-<img src="img/weaksignal_focus_index.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+<img src="img/train_test_dataset.png" width="35%" height="35%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
 </p>
-<p align="center">< 위크시그널의 포커스 인덱스 예시></p>
+<p align="center"> < 학습데이터와 평가데이터 > </p>  
+  
+## 3.3 학습모델 성능 및 2022 위크시그널에 대한 성장성 예측결과
+
+> ```고성장 특허 예측결과```  
+
+> 2011년부터 2022년까지 비금속광물제품 제조업부터 의료용 기기 제조업, 자동차 제조업, 항공기 제조업 등 weak signal의 예측 흐름을 파악할 수 있습니다. 주목할 점은 2018년에서 2022년 예측결과 고성장 기술로 Top1으로 '담배제조업'이 예측되었습니다. '담배제조업'은 특허 키워드를 활용한 위크시그널 부분에서 2019년 위크시그널로 전자 담배 관련 키워드로 '담배' 분야가 분석되었습니다. 기반 특징이 CPC subgroup을 통해 나온 벡터 결과와 특허 내 키워드로 나온 결과와 일치하는 점에서는 매우 흥미롭습니다. 하지만 산업분류가 서브클래스 혹은 메인클래스까지만 맵핑되는 점, 그래프 데이터의 불균형 등 해석과정에서 일어날 수 있는 손실이 있었고 KIPI DATA INSIGHT 제1호에서 키워드를 통한 위크시그널 방식이 GCNN을 통해 고성장 예측을 진행해 보지 못하였기 때문에 정확한 결과는 확인 할 수 없었습니다. 그럼에도 특허를 통한 weak signal를 파악할 떄, 특허의 특징이 두드러지게 나타날 수 있는 CPC나 키워드 방식은 기술을 파악하는데에 있어서 의미있는 접근방식이고 새로운 시도라고 볼 수 있는 실험이었습니다.
+  
+</br>
+<p align="center">
+<img src="img/predict_weak_signal.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+</p>
+<p align="center"> <연도별 위크시그널 고성장 예측 Top1~5 > </p>   
+</br>
+
+> ```국내 특허 내 담배 제조업 관련 연도별 출원건수```
+
+> 담배제조업의 경우 2008년에서 2013년의 그래프 데이터를 보고 10년 후 위크시그널 고성장 데이터로 예측하였습니다. 이를 확인하기 위해 실제 국내 특허 내 청구범위에서 '담배'라는 키워드가 사용된 통계를 보면 아래와 같습니다. 실제로 2008년에서 2010년까지 702건에 해당하는 담배제조업 출원 건수가 10년 후 2018년에서 2020년까지 1,355건으로 2배 넘게 급성장 하였습니다. 아래 차트에서 파란색 부분이 분석기간이 되고 빨간색 부분이 예측하는 예상기간이 됩니다. 키워드 혹은 키프레이즈를 활용한 위크시그널과 맞물려서 CPC를 활용한 위크시그널 또한 고성장 데이터로 예측이 동일하게 잘 된 것을 볼 수 있습니다.
+
+</br>
+<p align="center">
+<img src="img/cigaratte_statistic_.png" width="45%" height="45%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+</p>
+<p align="center"> < 담배 제조업 관련 연도별 출원건수 그래프> </p>   
+
+</br>
+<p align="center">
+<img src="img/cigaratte_statistic2.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="taget" align="center"></img>
+</p>
+<p align="center"> < 담배 제조업 관련 연도 별 출원건수 통계> </p>   
+
 
 ---
 
 # 4. Conclusion
 
-* 국내 특허 데이터를 활용하여 키워드를 추출하는 노하우적 관점에서 의미있는 사례
-* 위크시그널로 나온 기술을 대조했을 때, 메인클래스 기준 실제 출원 특허와 위크시그널로 추출된 특허의 상위 6개 경향이 대부분 동일한 것으로 보아 위크시그널 판단에 유효
-* 통계적으로 보아도 위크시그널로 추출된 결과와 출원 특허의 통계 비율이 크게 일치하는 결과를 보이는 것으로 보아 위크시그널 판단에 유효
-* 향후 특허 내 전체 섹션으로 실험하고 그래프 예측 모델도 구축하여 특허 전문가의 해석 및 평가가 필요
-* 본 연구에서는 n-gram 방식의 최대 4개의 토큰을 기준으로 프레이즈를 추출 & 활용하였으나, 특허 내의 기술적 핵심의미는 청구항을 비롯하여 문장 또는 문단내에 존재하는 경우가 많이 있으므로, 향후 단위 확장을 통해 더욱 큰 단위에서의 기술적 의미 분석이 필요하다. 그리고 빈도 기반의 제한적인 특징 추출을 벗어나 특허분석의 여러 지표들을 활용한 다양한 관점에서의 특징 추출이 필요하다.
-* 본 연구의 결과는 키워드 및 키프레이즈의 자연어 의미적 유사성을 기반으로 시그널 및 그룹을 군집화 하였으나, 특허 기술분류에 따라 의미가 다르더라도 실제 기술적 거리가 가까운 경우들이 존재하므로 기술분류거리에 대한 가중 반영이 이루어지면 더욱 세밀한 결과 도출이 될거라 기대
-* 특정 섹션이 아닌 거시적인 전체 특허 기준의 분석결과 도출과 각 출원년도별 위크시그널 추출 데이터를 기반한 딥러닝 학습을 통해,
-위크시그널의 미래 성장 가치 예측 모델링 시도가 필요
-* 본 연구를 통해 키워드를 통한 특허 데이터의 기술적 평가나 가치 평가 관련 연구를 진행하는 연구자들에게 좋은 레퍼런스가 될 것으로 기대
-  
+* 국내 특허 데이터를 활용하여 기술적 잠재력를 파악하는데 의미있는 사례로 보임
+* 본 연구에서 개발한 위크시그널 성장예측모형은 97.44%의 정확도 성능을 달성하였고, 이를 위크시그널 3,383개에 적용
+* 위크시그널 3,383개 중 10년 후 미래에 고성장 할 것으로 예측된 것은 총 1131개로 33.4%에 해당
+* 2018년부터 2022년 기간 동안 키워드 기반 위크시그널과 CPC 기반 위크시그널의 공통점으로 '담배제조업'이 고성장 기술로 떠오름
+* 특허 전문가들이 판단에 용이할 수 있는 CPC 기술분류체계지만 CPC만을 사용하여 모든 기술을 표현하는 데에 한계가 존재
+* CPC subgroup을 기초로 했지만 문헌 수가 적은 특정 subgroup 경우 한계가 존재하고 이럴 경우 maingroup으로 변경하던가 새로운 체계로 대채 할 수 있는 지에 대한 실험 필요
+* 본 연구는 특허 기술분류 기준으로 기술적 거리를 측정하였는데 키워드 및 키프레이즈의 방식의 결합을 통한 의미적 유사성 판단에 대한 연구가 필요
+* 특허 문헌 예측 기간을 늘리고 줄여서 예측에 적합한 기간을 설정하는 실험 필요
+* 키워드 기반 위크시그널과 동일하게 CPC 기반 위크시그널을 해석하는 각 기술분야 전문가의 해석이 필요한 문제점이 존재하고 더 나아가 그래프로 표현된 새로운 융합 기술들을 판단하는 해석의 한계 존재
+* 결과 있어서 특허 속성으로 규모성, 활동성, 경향성의 기존연구에서 사용한 기본적인 통계적 비율이나 수치를 적용하였기에 해석에 유의
+* 본 연구를 통해 향후 국내 특허 데이터를 활용한 기술적 평가나 가치 평가 관련 연구를 진행하는 연구자들에게 좋은 레퍼런스가 될 것으로 기대
